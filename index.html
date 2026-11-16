@@ -470,20 +470,22 @@
             if (step > 1) { step--; renderQuestion(); }
         }
 
+            <!-- Dito nagtatapos ang UI / HTML elements mo -->
+            
+    <!-- 1. Dito mo nilagay ang function mo directly sa index.html -->
+    <script>
         function showSuccess() {
-    document.getElementById('stepGate').classList.add('hidden');
-    document.getElementById('resName').innerText = proposalData.name;
-    document.getElementById('resType').innerText = proposalData.type;
-    document.getElementById('resDate').innerText = proposalData.date || 'As soon as possible';
-    document.getElementById('resCode').innerText = 'CRISP-LOVE-' + Math.random().toString(36).substring(2, 7).toUpperCase();
-    
-    document.getElementById('stepPass').classList.remove('hidden');
-}
-
-    <!-- Dito nagtatapos ang UI / HTML elements mo -->
-
-    <!-- Script para ikonekta ang logic mula sa repo.js -->
+            document.getElementById('stepGate').classList.add('hidden');
+            document.getElementById('resName').innerText = proposalData.name;
+            document.getElementById('resType').innerText = proposalData.type;
+            document.getElementById('resDate').innerText = proposalData.date || 'As soon as possible';
+            document.getElementById('resCode').innerText = 'CRISP-LOVE-' + Math.random().toString(36).substring(2, 7).toUpperCase();
+            
+            document.getElementById('stepPass').classList.remove('hidden');
+        }
+    </script>
+            
+    <!-- 2. Script para ikonekta ang logic mula sa repo.js -->
     <script src="repo.js"></script>
 </body>
 </html>
-
