@@ -1,0 +1,10 @@
+{
+  "name": "Crisp Proposal Gate",
+  "short_name": "ProposalGate",
+  "description": "Exclusive digital invitation and proposal portal with 3D envelope animation.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#f43f5e",
+  "icons": []
+}
