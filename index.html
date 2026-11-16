@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crisp Proposal Gate — Exclusive Engagement & Proposal</title>
+    <title>Crisp Suite — Proposal Gate</title>
     <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#12070e">
+    <meta name="theme-color" content="#07050a">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #12070e; /* Deep velvet wine background */
-            --card-bg: rgba(31, 15, 26, 0.9);
-            --accent: #f43f5e; /* Rose */
-            --accent-light: #fb7185;
-            --accent-glow: rgba(244, 63, 94, 0.35);
-            --gold: #f59e0b;
-            --border: rgba(244, 63, 94, 0.2);
-            --text-main: #fcf4f8;
-            --text-muted: #d1a3b8;
-            --input-bg: rgba(18, 7, 14, 0.8);
+            --bg-main: #07050a;
+            --card-bg: rgba(20, 16, 28, 0.85);
+            --gold: #ec4899;
+            --gold-light: #fbcfe8;
+            --rose: #f43f5e;
+            --rose-glow: rgba(244, 63, 94, 0.4);
+            --emerald: #10b981;
+            --border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --input-bg: rgba(7, 5, 10, 0.7);
         }
 
         [data-theme="light"] {
-            --bg-main: #fdf2f4;
+            --bg-main: #f8fafc;
             --card-bg: rgba(255, 255, 255, 0.95);
-            --accent: #e11d48;
-            --accent-light: #f43f5e;
-            --accent-glow: rgba(225, 29, 72, 0.15);
-            --gold: #d97706;
-            --border: rgba(225, 29, 72, 0.15);
-            --text-main: #380d19;
-            --text-muted: #9f5b6e;
-            --input-bg: rgba(253, 238, 241, 0.9);
+            --gold: #be185d;
+            --gold-light: #831843;
+            --rose: #e11d48;
+            --rose-glow: rgba(225, 29, 72, 0.2);
+            --emerald: #059669;
+            --border: rgba(0, 0, 0, 0.12);
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --input-bg: rgba(241, 245, 249, 0.9);
         }
 
         * {
@@ -55,11 +57,17 @@
 
         .hidden { display: none !important; }
 
-        /* Theme Toggle Button */
-        .theme-toggle {
+        /* Top Controls Container */
+        .controls {
             position: fixed;
             top: 20px;
             right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .control-btn {
             background: var(--card-bg);
             border: 1px solid var(--border);
             color: var(--text-main);
@@ -68,11 +76,10 @@
             cursor: pointer;
             font-size: 0.8rem;
             font-weight: 700;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        /* --- STEP 1: 3D ROMANTIC ENVELOPE --- */
+        /* --- STEP 1: 3D ENVELOPE (HEART & FLOWER MOTIF) --- */
         .envelope-wrapper {
             perspective: 1000px;
             cursor: pointer;
@@ -83,11 +90,11 @@
             position: relative;
             width: 340px;
             height: 230px;
-            background: linear-gradient(135deg, #3d1222, #1b0710); /* Deep Velvet Burgundy */
-            border: 1px solid rgba(244, 63, 94, 0.4);
+            background: linear-gradient(135deg, #381328, #190a14);
+            border: 1px solid rgba(236, 72, 153, 0.35);
             border-radius: 12px;
             margin: 0 auto 25px auto;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(244, 63, 94, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(244, 63, 94, 0.25);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
@@ -101,7 +108,7 @@
             top: 0; left: 0; width: 0; height: 0;
             border-left: 170px solid transparent;
             border-right: 170px solid transparent;
-            border-top: 130px solid #4a172a; /* Matingkad na burgundy flap */
+            border-top: 130px solid #501b38;
             transform-origin: top;
             transition: transform 0.6s ease;
             z-index: 3;
@@ -111,9 +118,9 @@
 
         .pocket {
             position: absolute; bottom: 0; left: 0; width: 0; height: 0;
-            border-left: 170px solid #280b15;
-            border-right: 170px solid #280b15;
-            border-bottom: 115px solid #330f1c;
+            border-left: 170px solid #2d1020;
+            border-right: 170px solid #2d1020;
+            border-bottom: 115px solid #40142b;
             border-top: 115px solid transparent;
             z-index: 2;
         }
@@ -121,13 +128,13 @@
         .wax-seal {
             position: absolute; top: 95px; left: 50%;
             transform: translateX(-50%);
-            width: 64px; height: 64px;
-            background: radial-gradient(circle at 30% 30%, #fb7185, #e11d48);
+            width: 68px; height: 68px;
+            background: radial-gradient(circle at 30% 30%, #f43f5e, #9f1239);
             border: 2px solid var(--gold);
             border-radius: 50%;
             z-index: 4;
             display: flex; justify-content: center; align-items: center;
-            font-size: 26px;
+            font-size: 28px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.6);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
@@ -136,18 +143,18 @@
 
         .env-prompt {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
-            color: var(--accent-light);
+            font-size: 1.4rem;
+            color: var(--gold-light);
             letter-spacing: 1px;
             margin-bottom: 6px;
         }
 
         .env-sub { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* --- STEP 2: STEP-BY-STEP PROPOSAL GATE CARD --- */
+        /* --- STEP 2: GATE CARD --- */
         .gate-card {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             border: 1px solid var(--border);
@@ -162,10 +169,38 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        .mode-tabs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            background: var(--input-bg);
+            padding: 6px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            border: 1px solid var(--border);
+        }
+
+        .mode-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 9px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .mode-btn.active {
+            background: linear-gradient(135deg, var(--rose), #be123c);
+            color: #fff;
+            box-shadow: 0 4px 12px var(--rose-glow);
+        }
+
         .step-indicator {
             font-size: 0.75rem;
             font-weight: 800;
-            color: var(--accent);
+            color: var(--gold);
             letter-spacing: 1.5px;
             text-transform: uppercase;
             margin-bottom: 6px;
@@ -173,7 +208,7 @@
 
         .question-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: var(--text-main);
             margin-bottom: 8px;
         }
@@ -182,14 +217,13 @@
             font-size: 0.85rem;
             color: var(--text-muted);
             margin-bottom: 22px;
-            line-height: 1.5;
         }
 
         .form-group { margin-bottom: 18px; }
 
         input, select {
             width: 100%;
-            padding: 14px 16px;
+            padding: 13px 16px;
             background: var(--input-bg);
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -198,17 +232,17 @@
             outline: none;
         }
 
-        input:focus, select:focus { border-color: var(--accent); }
+        input:focus, select:focus { border-color: var(--gold); }
 
         .btn-group {
             display: flex;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .btn-next, .btn-back {
             flex: 1;
-            padding: 14px;
+            padding: 13px;
             border: none;
             border-radius: 12px;
             font-weight: 700;
@@ -217,9 +251,9 @@
         }
 
         .btn-next {
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            color: #ffffff;
-            box-shadow: 0 8px 20px var(--accent-glow);
+            background: linear-gradient(135deg, var(--rose), #e11d48);
+            color: #fff;
+            box-shadow: 0 8px 20px var(--rose-glow);
         }
 
         .btn-back {
@@ -229,22 +263,22 @@
         }
 
         .error-text {
-            color: var(--accent);
+            color: #f43f5e;
             font-size: 0.82rem;
             margin-top: 10px;
             font-weight: 600;
             text-align: center;
         }
 
-        /* --- STEP 3: SUCCESS PROPOSAL PASS --- */
+        /* --- STEP 3: SUCCESS PASS --- */
         .vip-pass {
             width: 100%;
-            max-width: 480px;
+            max-width: 460px;
             background: var(--card-bg);
-            border: 2px solid var(--accent);
+            border: 2px solid var(--gold);
             border-radius: 24px;
             padding: 32px;
-            box-shadow: 0 25px 60px rgba(244, 63, 94, 0.25);
+            box-shadow: 0 25px 60px rgba(236, 72, 153, 0.2);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -257,7 +291,7 @@
         }
 
         .success-icon {
-            font-size: 50px;
+            font-size: 55px;
             margin-bottom: 12px;
             animation: pulseIcon 1.5s infinite;
         }
@@ -269,8 +303,8 @@
 
         .vip-pass h2 {
             font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            color: var(--accent-light);
+            font-size: 1.5rem;
+            color: var(--gold-light);
             margin-bottom: 6px;
         }
 
@@ -287,7 +321,7 @@
         .ticket-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 7px 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -295,62 +329,48 @@
         .t-label { color: var(--text-muted); }
         .t-val { font-weight: 700; color: var(--text-main); text-align: right; }
 
-        .btn-action-group {
-            display: flex;
-            gap: 10px;
-        }
-
         .btn-action {
-            flex: 1;
+            width: 100%;
             padding: 13px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            color: #ffffff;
+            background: linear-gradient(135deg, var(--gold), #be185d);
+            color: #fff;
             border: none;
             border-radius: 12px;
             font-weight: 800;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             cursor: pointer;
-            box-shadow: 0 8px 20px var(--accent-glow);
-        }
-
-        .btn-decline {
-            flex: 1;
-            padding: 13px;
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        .btn-decline:hover {
-            border-color: var(--gold);
-            color: var(--gold);
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
         }
     </style>
 </head>
 <body data-theme="dark">
 
-    <button class="theme-toggle" onclick="toggleTheme()">☀️ / 🌙 Theme</button>
+    <div class="controls">
+        <button class="control-btn" onclick="toggleLang()" id="langBtn">🇵🇭 Tagalog</button>
+        <button class="control-btn" onclick="toggleTheme()">☀️ / 🌙</button>
+    </div>
 
-    <!-- STEP 1: 3D ROMANTIC ENVELOPE -->
+    <!-- STEP 1: 3D ENVELOPE (FLOWER & HEART SEAL) -->
     <div class="envelope-wrapper" id="stepEnvelope" onclick="openEnvelope()">
         <div class="envelope" id="envelopeObj">
             <div class="flap"></div>
             <div class="pocket"></div>
-            <div class="wax-seal">💍</div>
+            <div class="wax-seal">💐</div>
         </div>
-        <div class="env-prompt">CRISP PROPOSAL GATE</div>
-        <div class="env-sub">Tap wax seal to unlock exclusive encrypted message</div>
+        <div class="env-prompt" data-i18n="envPrompt">PROPOSAL GATE</div>
+        <div class="env-sub" data-i18n="envSub">Tap wax seal to open encrypted proposal envelope</div>
     </div>
 
-    <!-- STEP 2: STEP-BY-STEP PROPOSAL GATE -->
+    <!-- STEP 2: STEP-BY-STEP SCREENING CARD -->
     <div class="gate-card hidden" id="stepGate">
+        <div class="mode-tabs">
+            <button class="mode-btn active" id="tabMarriage" onclick="switchMode('marriage')">💍 Marriage Proposal</button>
+            <button class="mode-btn" id="tabBusiness" onclick="switchMode('business')">💼 Business Partnership</button>
+        </div>
+
         <div class="step-indicator" id="stepIndicator">Step 1 of 4</div>
-        <div class="question-title" id="qTitle">Your Name</div>
-        <div class="question-desc" id="qDesc">Ilagay ang iyong pangalan para sa opisyal na rekording ng imbitasyon.</div>
+        <div class="question-title" id="qTitle">Proposer Name?</div>
+        <div class="question-desc" id="qDesc">Ilagay ang pangalan ng nag-aabot ng proposal.</div>
 
         <div class="form-group" id="inputContainer">
             <!-- Dynamically injected input per question -->
@@ -359,39 +379,124 @@
         <div class="error-text" id="errorMsg"></div>
 
         <div class="btn-group">
-            <button class="btn-back hidden" id="btnBack" onclick="prevStep()">Bumalik</button>
-            <button class="btn-next" id="btnNext" onclick="nextStep()">Susunod ➔</button>
+            <button class="btn-back hidden" id="btnBack" onclick="prevStep()" data-i18n="btnBack">Back</button>
+            <button class="btn-next" id="btnNext" onclick="nextStep()" data-i18n="btnNext">Next ➔</button>
         </div>
     </div>
 
-    <!-- STEP 3: SUCCESS PROPOSAL PASS -->
+    <!-- STEP 3: SUCCESS PASS -->
     <div class="vip-pass hidden" id="stepPass">
         <div class="success-icon">💖</div>
-        <h2 id="successHeader">Exclusive Proposal Unlocked</h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">Matagumpay na na-verify ang access key.</p>
+        <h2 data-i18n="successHeader">Proposal Accepted!</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;" data-i18n="successSub">Matagumpay na tinanggap at naitala ang iyong proposal.</p>
 
         <div class="ticket-box">
-            <div class="ticket-row"><span class="t-label">Recipient:</span><span class="t-val" id="resName"></span></div>
-            <div class="ticket-row"><span class="t-label">Proposal Type:</span><span class="t-val" id="resType"></span></div>
-            <div class="ticket-row"><span class="t-label">Target Date:</span><span class="t-val" id="resDate"></span></div>
-            <div class="ticket-row"><span class="t-label">Access Pass:</span><span class="t-val" style="color: var(--gold);" id="resCode"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblProposer">Proposer:</span><span class="t-val" id="resName"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblType">Proposal Type:</span><span class="t-val" id="resType"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblTerm">Commitment Term:</span><span class="t-val" id="resTerm"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblStatus">Status:</span><span class="t-val" style="color: var(--emerald);" id="resStatus"></span></div>
+            <div class="ticket-row"><span class="t-label" data-i18n="lblCode">Proposal ID:</span><span class="t-val" style="color: var(--gold-light);" id="resCode"></span></div>
         </div>
 
-        <div class="btn-action-group">
-            <button class="btn-action" onclick="alert('💍 YES! Proposal Accepted Successfully! Forever locked in.')">Yes, Forever ❤️</button>
-            <button class="btn-decline" onclick="alert('💬 Message sent. Let us talk about the details over coffee.')">Let's Talk 💬</button>
-        </div>
+        <button class="btn-action" onclick="alert('✅ Proposal Pass saved successfully!')" data-i18n="btnSave">✨ Save Proposal Clearance</button>
     </div>
 
     <script>
+        // Multi-language dictionary
+        const langData = {
+            en: {
+                envPrompt: "PROPOSAL GATE",
+                envSub: "Tap wax seal to open encrypted proposal envelope",
+                btnBack: "Back",
+                btnNext: "Next ➔",
+                successHeader: "Proposal Accepted!",
+                successSub: "Your proposal has been successfully accepted and recorded.",
+                lblProposer: "Proposer:",
+                lblType: "Proposal Type:",
+                lblTerm: "Commitment Term:",
+                lblStatus: "Status:",
+                lblCode: "Proposal ID:",
+                btnSave: "✨ Save Proposal Clearance",
+                stepsMarriage: [
+                    { title: "Proposer Full Name?", desc: "Enter your full name for the proposal record.", placeholder: "Romeo Montague" },
+                    { title: "Intended Partner Name?", desc: "Enter the name of your beloved partner.", placeholder: "Juliet Capulet" },
+                    { title: "Forever Commitment Pledge?", desc: "Select your romantic alignment level.", options: [
+                        {val: "Eternal Partnership & Loyalty", text: "Eternal Partnership & Loyalty"},
+                        {val: "Lifetime Adventure Together", text: "Lifetime Adventure Together"}
+                    ]},
+                    { title: "Secret Anniversary Code?", desc: "Enter a memorable date or confirmation key.", placeholder: "MMDDYY" }
+                ],
+                stepsBusiness: [
+                    { title: "Lead Partner Name?", desc: "Enter name of the business proposer.", placeholder: "Director Crisp" },
+                    { title: "Venture / Enterprise Name?", desc: "Name of the collaborative ecosystem project.", placeholder: "Crisp Suite Venture" },
+                    { title: "Collaboration Tier?", desc: "Select partnership structure.", options: [
+                        {val: "Strategic Equity Alliance", text: "Strategic Equity Alliance"},
+                        {val: "Co-Developer Partnership", text: "Co-Developer Partnership"}
+                    ]},
+                    { title: "Security Key / Passcode?", desc: "Enter institutional authorization key.", placeholder: "••••", type: "password" }
+                ]
+            },
+            tl: {
+                envPrompt: "PROPOSAL GATE",
+                envSub: "I-tap ang wax seal upang buksan ang proposal envelope",
+                btnBack: "Bumalik",
+                btnNext: "Susunod ➔",
+                successHeader: "Tinanggap ang Proposal!",
+                successSub: "Matagumpay na tinanggap at naitala ang iyong proposal.",
+                lblProposer: "Proposer:",
+                lblType: "Uri ng Proposal:",
+                lblTerm: "Tuntunin ng Panata:",
+                lblStatus: "Katayuan:",
+                lblCode: "Proposal ID:",
+                btnSave: "✨ I-save ang Proposal Clearance",
+                stepsMarriage: [
+                    { title: "Buong Pangalan ng Proposer?", desc: "Ilagay ang iyong pangalan para sa talaan.", placeholder: "Romeo Montague" },
+                    { title: "Pangalan ng Iyong Mamahalin?", desc: "Ilagay ang pangalan ng iyong kasintahan o partner.", placeholder: "Juliet Capulet" },
+                    { title: "Panata ng Habambuhay na Pagsasama?", desc: "Piliin ang iyong antas ng pangako.", options: [
+                        {val: "Eternal Partnership & Loyalty", text: "Panghabambuhay na Pagtatapat at Katapatan"},
+                        {val: "Lifetime Adventure Together", text: "Pagsasama sa Lahat ng Pagsubok at Kasiyahan"}
+                    ]},
+                    { title: "Secret Anniversary Code?", desc: "Ilagay ang petsa o key ng inyong pagsasama.", placeholder: "MMDDYY" }
+                ],
+                stepsBusiness: [
+                    { title: "Pangalan ng Lead Partner?", desc: "Ilagay ang pangalan ng nagpopropose sa negosyo.", placeholder: "Director Crisp" },
+                    { title: "Pangalan ng Venture / Enterprise?", desc: "Pangalan ng kolaboratibong proyekto.", placeholder: "Crisp Suite Venture" },
+                    { title: "Uri ng Kolaborasyon?", desc: "Piliin ang istruktura ng pakikipagsosyo.", options: [
+                        {val: "Strategic Equity Alliance", text: "Strategic Equity Alliance"},
+                        {val: "Co-Developer Partnership", text: "Co-Developer Partnership"}
+                    ]},
+                    { title: "Security Key / Passcode?", desc: "Ilagay ang institutional authorization key.", placeholder: "••••", type: "password" }
+                ]
+            }
+        };
+
+        let currentLang = 'en';
         let currentTheme = 'dark';
+        let mode = 'marriage'; // marriage or business
+        let step = 1;
+        let proposalDataUser = { name: '', target: '', term: '' };
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'tl' : 'en';
+            document.getElementById('langBtn').innerText = currentLang === 'en' ? '🇵🇭 Tagalog' : '🇬🇧 English';
+            updateStaticText();
+            if (document.getElementById('stepGate').classList.contains('hidden') === false) {
+                renderQuestion();
+            }
+        }
+
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.body.setAttribute('data-theme', currentTheme);
         }
 
-        let step = 1;
-        let proposalData = { name: '', code: '', type: '', date: '' };
+        function updateStaticText() {
+            const dict = langData[currentLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerText = dict[key];
+            });
+        }
 
         function openEnvelope() {
             document.getElementById('envelopeObj').classList.add('open');
@@ -402,45 +507,45 @@
             }, 600);
         }
 
+        function switchMode(selectedMode) {
+            mode = selectedMode;
+            step = 1;
+            document.getElementById('tabMarriage').classList.toggle('active', mode === 'marriage');
+            document.getElementById('tabBusiness').classList.toggle('active', mode === 'business');
+            renderQuestion();
+        }
+
         function renderQuestion() {
             document.getElementById('errorMsg').innerText = '';
             document.getElementById('btnBack').classList.toggle('hidden', step === 1);
             
-            const totalSteps = 4;
-            document.getElementById('stepIndicator').innerText = `Step ${step} of ${totalSteps} • Proposal Gate`;
+            const dict = langData[currentLang];
+            const stepsList = mode === 'marriage' ? dict.stepsMarriage : dict.stepsBusiness;
+            const qData = stepsList[step - 1];
 
-            let title = '', desc = '', html = '';
+            document.getElementById('stepIndicator').innerText = `Step ${step} of 4 • ${mode.toUpperCase()}`;
+            document.getElementById('qTitle').innerText = qData.title;
+            document.getElementById('qDesc').innerText = qData.desc;
 
-            if (step === 1) {
-                title = "Anong Pangalan Mo?";
-                desc = "Ilagay ang pangalan ng special guest para sa gate na ito.";
-                html = `<input type="text" id="ansVal" placeholder="Maria Santos" value="${proposalData.name}">`;
-            } else if (step === 2) {
-                title = "Secret Passcode / Anniversary Date?";
-                desc = "I-type ang mahalagang petsa o secret code para makarating sa mensahe.";
-                html = `<input type="text" id="ansVal" placeholder="MM/DD/YYYY o Secret Phrase" value="${proposalData.code}">`;
-            } else if (step === 3) {
-                title = "Uri ng Proposal o Partnership";
-                desc = "Piliin ang layunin ng imbitasyong ito.";
-                html = `<select id="ansVal">
-                    <option value="">Pili ng uri...</option>
-                    <option value="Exclusive Engagement Proposal">Exclusive Engagement Proposal 💍</option>
-                    <option value="Long-term Partnership Offer">Long-term Partnership Offer 🤝</option>
-                    <option value="Surprise Date Night Invitation">Surprise Date Night Invitation 🍷</option>
-                    <option value="VIP Secret Project Partnership">VIP Secret Project Partnership 🚀</option>
-                </select>`;
-            } else if (step === 4) {
-                title = "Gusto Mong Kailan Natin Ito I-execute?";
-                desc = "Itakda ang gustong petsa ng pagdiriwang.";
-                html = `<input type="date" id="ansVal" value="${proposalData.date}">`;
-                document.getElementById('btnNext').innerText = "Buksan ang Opisyal na Alok 💖";
+            let html = '';
+            if (qData.options) {
+                let optionsHtml = `<option value="">${currentLang === 'en' ? 'Select option...' : 'Pumili ng opsyon...'}</option>`;
+                qData.options.forEach(opt => {
+                    optionsHtml += `<option value="${opt.val}">${opt.text}</option>`;
+                });
+                html = `<select id="ansVal">${optionsHtml}</select>`;
+            } else {
+                let val = step === 1 ? proposalDataUser.name : (step === 2 ? proposalDataUser.target : '');
+                html = `<input type="${qData.type || 'text'}" id="ansVal" placeholder="${qData.placeholder}" value="${val}">`;
             }
 
-            if(step < 4) document.getElementById('btnNext').innerText = "Susunod ➔";
-
-            document.getElementById('qTitle').innerText = title;
-            document.getElementById('qDesc').innerText = desc;
             document.getElementById('inputContainer').innerHTML = html;
+
+            if (step < 4) {
+                document.getElementById('btnNext').innerText = dict.btnNext;
+            } else {
+                document.getElementById('btnNext').innerText = currentLang === 'en' ? 'Submit Proposal 💖' : 'Isumite ang Proposal 💖';
+            }
         }
 
         function nextStep() {
@@ -449,15 +554,14 @@
             const val = valElem ? valElem.value.trim() : '';
 
             if (!val) {
-                err.innerText = "⚠️ Paki-fill up muna ang detalyeng ito.";
+                err.innerText = currentLang === 'en' ? "⚠️ Please fill out this field before proceeding." : "⚠️ Paki-fill up muna ang patlang na ito.";
                 return;
             }
 
-            if (step === 1) proposalData.name = val;
-            if (step === 2) proposalData.code = val;
-            if (step === 3) proposalData.type = val;
+            if (step === 1) proposalDataUser.name = val;
+            if (step === 2) proposalDataUser.target = val;
+            if (step === 3) proposalDataUser.term = val;
             if (step === 4) {
-                proposalData.date = val;
                 showSuccess();
                 return;
             }
@@ -470,22 +574,20 @@
             if (step > 1) { step--; renderQuestion(); }
         }
 
-            <!-- Dito nagtatapos ang UI / HTML elements mo -->
-            
-    <!-- 1. Dito mo nilagay ang function mo directly sa index.html -->
-    <script>
         function showSuccess() {
             document.getElementById('stepGate').classList.add('hidden');
-            document.getElementById('resName').innerText = proposalData.name;
-            document.getElementById('resType').innerText = proposalData.type;
-            document.getElementById('resDate').innerText = proposalData.date || 'As soon as possible';
-            document.getElementById('resCode').innerText = 'CRISP-LOVE-' + Math.random().toString(36).substring(2, 7).toUpperCase();
+            
+            document.getElementById('resName').innerText = proposalDataUser.name;
+            document.getElementById('resType').innerText = mode === 'marriage' ? (currentLang === 'en' ? "Marriage Proposal" : "Proposal sa Kasal") : (currentLang === 'en' ? "Business Partnership" : "Sosyohan sa Negosyo");
+            document.getElementById('resTerm').innerText = proposalDataUser.term;
+            document.getElementById('resStatus').innerText = currentLang === 'en' ? "Approved & Verified" : "Aprubado at Beripikado";
+            document.getElementById('resCode').innerText = 'CRISP-PROP-' + Math.random().toString(36).substring(2, 7).toUpperCase();
             
             document.getElementById('stepPass').classList.remove('hidden');
         }
     </script>
-            
-    <!-- 2. Script para ikonekta ang logic mula sa repo.js -->
+
+    <!-- repo.js integration -->
     <script src="repo.js"></script>
 </body>
 </html>
