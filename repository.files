@@ -1,0 +1,6 @@
+your-proposal-repo/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── index.html
+└── repo.js
