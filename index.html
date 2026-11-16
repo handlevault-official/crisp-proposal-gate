@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crisp Proposal Gate — Exclusive Invitation & Proposal</title>
+    <title>Crisp Proposal Gate — Exclusive Engagement & Proposal</title>
     <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#0b0f19">
+    <meta name="theme-color" content="#12070e">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #0b0f19;
-            --card-bg: rgba(17, 24, 39, 0.85);
-            --accent: #f43f5e;
+            --bg-main: #12070e; /* Deep velvet wine background */
+            --card-bg: rgba(31, 15, 26, 0.9);
+            --accent: #f43f5e; /* Rose */
             --accent-light: #fb7185;
-            --accent-glow: rgba(244, 63, 94, 0.3);
+            --accent-glow: rgba(244, 63, 94, 0.35);
             --gold: #f59e0b;
-            --border: rgba(255, 255, 255, 0.1);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --input-bg: rgba(11, 15, 25, 0.8);
+            --border: rgba(244, 63, 94, 0.2);
+            --text-main: #fcf4f8;
+            --text-muted: #d1a3b8;
+            --input-bg: rgba(18, 7, 14, 0.8);
         }
 
         [data-theme="light"] {
-            --bg-main: #f8fafc;
+            --bg-main: #fdf2f4;
             --card-bg: rgba(255, 255, 255, 0.95);
             --accent: #e11d48;
             --accent-light: #f43f5e;
             --accent-glow: rgba(225, 29, 72, 0.15);
             --gold: #d97706;
-            --border: rgba(0, 0, 0, 0.12);
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --input-bg: rgba(241, 245, 249, 0.9);
+            --border: rgba(225, 29, 72, 0.15);
+            --text-main: #380d19;
+            --text-muted: #9f5b6e;
+            --input-bg: rgba(253, 238, 241, 0.9);
         }
 
         * {
@@ -68,11 +68,11 @@
             cursor: pointer;
             font-size: 0.8rem;
             font-weight: 700;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             z-index: 100;
         }
 
-        /* --- STEP 1: 3D ENVELOPE --- */
+        /* --- STEP 1: 3D ROMANTIC ENVELOPE --- */
         .envelope-wrapper {
             perspective: 1000px;
             cursor: pointer;
@@ -83,11 +83,11 @@
             position: relative;
             width: 340px;
             height: 230px;
-            background: linear-gradient(135deg, #1f1118, #0b0f19);
-            border: 1px solid rgba(244, 63, 94, 0.35);
+            background: linear-gradient(135deg, #3d1222, #1b0710); /* Deep Velvet Burgundy */
+            border: 1px solid rgba(244, 63, 94, 0.4);
             border-radius: 12px;
             margin: 0 auto 25px auto;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(244, 63, 94, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(244, 63, 94, 0.25);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
@@ -101,7 +101,7 @@
             top: 0; left: 0; width: 0; height: 0;
             border-left: 170px solid transparent;
             border-right: 170px solid transparent;
-            border-top: 130px solid #2d1622;
+            border-top: 130px solid #4a172a; /* Matingkad na burgundy flap */
             transform-origin: top;
             transition: transform 0.6s ease;
             z-index: 3;
@@ -111,9 +111,9 @@
 
         .pocket {
             position: absolute; bottom: 0; left: 0; width: 0; height: 0;
-            border-left: 170px solid #190e15;
-            border-right: 170px solid #190e15;
-            border-bottom: 115px solid #23121d;
+            border-left: 170px solid #280b15;
+            border-right: 170px solid #280b15;
+            border-bottom: 115px solid #330f1c;
             border-top: 115px solid transparent;
             z-index: 2;
         }
@@ -236,7 +236,7 @@
             text-align: center;
         }
 
-        /* --- STEP 3: SUCCESS PASS & PROPOSAL ACCEPTANCE --- */
+        /* --- STEP 3: SUCCESS PROPOSAL PASS --- */
         .vip-pass {
             width: 100%;
             max-width: 480px;
@@ -244,7 +244,7 @@
             border: 2px solid var(--accent);
             border-radius: 24px;
             padding: 32px;
-            box-shadow: 0 25px 60px rgba(244, 63, 94, 0.2);
+            box-shadow: 0 25px 60px rgba(244, 63, 94, 0.25);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -335,7 +335,7 @@
 
     <button class="theme-toggle" onclick="toggleTheme()">☀️ / 🌙 Theme</button>
 
-    <!-- STEP 1: 3D ENVELOPE -->
+    <!-- STEP 1: 3D ROMANTIC ENVELOPE -->
     <div class="envelope-wrapper" id="stepEnvelope" onclick="openEnvelope()">
         <div class="envelope" id="envelopeObj">
             <div class="flap"></div>
